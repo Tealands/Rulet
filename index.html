@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101522">
+    <title>ルーレット | 5桁の数字で抽選</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="page-header">
+        <p class="eyebrow">NUMBER ROULETTE</p>
+        <h1>ルーレット</h1>
+        <p class="intro">5桁の数字をひとつずつ決めて、当選者を選びます。</p>
+      </header>
+
+      <section class="panel" aria-labelledby="participants-heading">
+        <div class="section-heading">
+          <div>
+            <p class="step">STEP 1</p>
+            <h2 id="participants-heading">参加者</h2>
+          </div>
+          <span class="count" id="participant-count">5人</span>
+        </div>
+        <label class="visually-hidden" for="participants">参加者の名前（1行に1人）</label>
+        <textarea id="participants" rows="5" spellcheck="false">参加者 1
+参加者 2
+参加者 3
+参加者 4
+参加者 5</textarea>
+        <p class="hint">1行に1人ずつ入力してください。空の行は無視されます。</p>
+      </section>
+
+      <section class="panel draw-panel" aria-labelledby="draw-heading">
+        <div class="section-heading">
+          <div>
+            <p class="step">STEP 2</p>
+            <h2 id="draw-heading">抽選</h2>
+          </div>
+        </div>
+        <div class="digits" id="digits" aria-label="決定した5桁の数字" aria-live="polite">
+          <span>?</span><span>?</span><span>?</span><span>?</span><span>?</span>
+        </div>
+        <p class="draw-status" id="draw-status" aria-live="polite">準備ができたら抽選を始めてください。</p>
+        <button id="draw-button" type="button">抽選スタート</button>
+        <p class="error" id="error-message" role="alert" hidden></p>
+      </section>
+
+      <section class="result" id="result" aria-live="polite" aria-atomic="true" hidden>
+        <p class="step">RESULT</p>
+        <h2>当選者</h2>
+        <p class="winner" id="winner-name"></p>
+        <p class="calculation" id="calculation"></p>
+      </section>
+      <footer>数字を参加者数で割った余りが 0 のときは、最後の人が当選します。</footer>
+    </main>
+  </body>
+</html>
